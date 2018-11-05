@@ -61,9 +61,9 @@ public class Complex {
      * @param radians the angle of the rotation (counterclockwise) in radians
      * @return a complex number, whose multiplication corresponds to a rotation by the given angle.
      */
-    static Complex rotation(double radians) {
-        //FIXME: rotation de complex
-        return new Complex(- Math.cos(radians), Math.sin(radians));
+    public Complex rotation(double radians) {
+        return new Complex(this.real * Math.cos(radians) + this.imaginary * Math.sin(radians),
+                - this.real * Math.sin(radians) + this.imaginary * Math.cos(radians));
     }
 
     /**
