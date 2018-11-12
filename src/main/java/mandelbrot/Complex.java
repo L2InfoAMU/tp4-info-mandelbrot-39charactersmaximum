@@ -39,7 +39,7 @@ public class Complex {
     /**
      * One as a complex number
      */
-    static Complex ONE = new Complex(1, 1);
+    static Complex ONE = new Complex(1, 0);
 
 
     /**
@@ -155,10 +155,10 @@ public class Complex {
      * @return a complex number <code>c</code> such that <code>this * c = 1</code>
      */
     Complex reciprocal() {
-        if (this.equals(ZERO)){
+        double m = squaredModulus();
+        if (m == 0){
             throw new ArithmeticException("divide by zero");
         }
-        double m = squaredModulus();
         return new Complex(this.real / m, this.imaginary / m);
     }
 
