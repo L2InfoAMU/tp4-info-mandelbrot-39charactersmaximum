@@ -145,7 +145,7 @@ public class Complex {
      * @return <code>||this||</code>
      */
     double modulus() {
-        return multiply(this).real+multiply(this).imaginary;
+        return Math.sqrt(squaredModulus());
     }
 
 
