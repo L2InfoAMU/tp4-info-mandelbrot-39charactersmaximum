@@ -62,8 +62,7 @@ public class Complex {
      * @return a complex number, whose multiplication corresponds to a rotation by the given angle.
      */
     static Complex rotation(double radians) {
-        return new Complex(1 * Math.cos(radians),
-                - 1 * Math.sin(radians));
+        return new Complex(Math.cos(radians), Math.sin(radians));
     }
 
     /**
@@ -93,7 +92,7 @@ public class Complex {
      * @return A complex <code>c</code> such that <code>this + c = 0</code>
      */
     Complex negate() {
-        return new Complex(-this.real, this.imaginary);
+        return new Complex(-this.real, -this.imaginary);
     }
 
     /**
@@ -159,7 +158,7 @@ public class Complex {
         if (m == 0){
             throw new ArithmeticException("divide by zero");
         }
-        return new Complex(this.real / m, this.imaginary / m);
+        return new Complex(this.real / m, -this.imaginary / m);
     }
 
     /**
@@ -215,7 +214,7 @@ public class Complex {
         if (o == null || this.getClass() != o.getClass())
             return false;
         Complex complex = (Complex) o;
-        return Helpers.doubleCompare(complex.real, this.real) == 0 ||
+        return Helpers.doubleCompare(complex.real, this.real) == 0 &&
                 Helpers.doubleCompare(complex.imaginary, this.imaginary) == 0;
     }
 

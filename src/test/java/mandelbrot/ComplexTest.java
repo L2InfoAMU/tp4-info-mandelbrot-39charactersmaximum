@@ -13,6 +13,8 @@ public class ComplexTest {
     private final Complex oneMinusI = new Complex(1, -1);
     private final Complex twoI = new Complex(0,2);
     private final Complex two = new Complex(2,0);
+    private final Complex four = new Complex(4, 0);
+    private final Complex big = new Complex(23, 34);
     private final double real = -12;
     private final double imaginary = 10;
 
@@ -122,8 +124,30 @@ public class ComplexTest {
     }
 
     @Test
+    void testAdd(){
+        assertEquals(Complex.ONE, Complex.ZERO.add(Complex.ONE));
+    }
+
+    @Test
+    void testPow(){
+        assertEquals(Complex.ONE, big.pow(0));
+        assertEquals(big, big.pow(1));
+        assertEquals(four, two.pow(2));
+    }
+
+    @Test
+    void testMultiply(){
+        assertEquals(Complex.ZERO, Complex.ZERO.multiply((Complex.I)));
+        assertEquals(Complex.ZERO, Complex.ZERO.multiply((Complex.ONE)));
+        assertEquals(Complex.ONE, Complex.ONE.multiply((Complex.ONE)));
+        assertEquals(Complex.I, Complex.I.multiply((Complex.I)));
+    }
+
+    @Test
     void testEquals(){
-        //
+        assertEquals(true, Complex.I.equals(Complex.I));
+        assertEquals(true, Complex.ZERO.equals(Complex.ZERO));
+        assertEquals(true, Complex.ONE.equals(new Complex(1, 0)));
     }
 
     @Test
