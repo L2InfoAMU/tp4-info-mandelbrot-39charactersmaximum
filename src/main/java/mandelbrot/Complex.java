@@ -136,7 +136,7 @@ public class Complex {
      * @return <code>||this|| ** 2</code>
      */
     double squaredModulus() {
-        return real * real + imaginary * imaginary;
+        return this.real * this.real + this.imaginary * this.imaginary;
     }
 
     /**
@@ -155,11 +155,11 @@ public class Complex {
      * @return a complex number <code>c</code> such that <code>this * c = 1</code>
      */
     Complex reciprocal() {
-        if (this.equals(ONE)){
+        if (this.equals(ZERO)){
             throw new ArithmeticException("divide by zero");
         }
         double m = squaredModulus();
-        return new Complex(real / m, imaginary / m);
+        return new Complex(this.real / m, this.imaginary / m);
     }
 
     /**
